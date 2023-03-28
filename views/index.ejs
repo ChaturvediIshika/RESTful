@@ -1,0 +1,22 @@
+<title>Index</title>
+<%-include('./partials/header')%>
+
+    <h1>All Comments</h1>
+    <br>
+    <ul>
+        <%for(let com of comments){%>
+            <li><p><strong>Name: <%=com.username%></strong>
+                <br>
+            <strong>text: <%=com.text%></strong><br>
+            <a href="/comments/<%=com.id%>">show</a>
+            <a href="/comments/<%=com.id%>/edit">Edit</a>
+            <form action="/comments/<%=com.id%>?_method=delete" method="post">
+                <button>DELETE</button>
+            </form>
+
+        </p>
+        </li>
+        <%}%>
+    </ul>
+    <a href="comments/new">ADD Comment</a>
+<%-include('./partials/footer')%>
